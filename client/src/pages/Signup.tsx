@@ -6,6 +6,15 @@ interface Props {
     
 }
 
+interface Employee {
+    id: number
+    employee_name: string
+    employee_salary: number
+    employee_age: number
+    profile_image: string
+}
+
+
 const Signup: React.FC<Props> = ({}) => {
     // Signup Field States
     const [firstName, setFirstName] = useState<string>('');
@@ -16,9 +25,20 @@ const Signup: React.FC<Props> = ({}) => {
     // GraphQL Mutation
     const [createUser, { error, loading, data }] = useMutation(SIGN_UP);
     // Sign Up Button Handler
-    const signUp = async () => {
-
-    }
+    const signUp = async (): Promise<void>  => {
+        try {
+            await createUser({
+                variables: {
+                    firstName: firstName,
+                    lastName: lastName,
+                    username: username,
+                    password: password
+                }
+            });
+        } catch (e) {
+            console.error(e);
+        }
+    };
 
     useEffect(() => {
         if (error) console.error(error);
