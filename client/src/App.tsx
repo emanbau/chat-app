@@ -2,6 +2,8 @@ import React from 'react';
 import './App.scss';
 import { ApolloClient, InMemoryCache, ApolloProvider, HttpLink, from } from '@apollo/client'
 import { onError } from '@apollo/client/link/error';
+import { login, logout } from './Redux/loggedin';
+import { useAppSelector, useAppDispatch } from './Redux/reduxhooks';
 
 const errorLink = onError(({ graphQLErrors, networkError }) => {
   if (graphQLErrors) {
@@ -27,10 +29,14 @@ const client = new ApolloClient({
 
 
 const App: React.FC = () => {
+
+  const loggedin = useAppSelector(state => state.loggedin.loggedin);
+  const dispatch = useAppDispatch();
+
   return (
+    
     <ApolloProvider client={client}>
       <div className="App">
-        
       </div>
     </ApolloProvider>
   );
