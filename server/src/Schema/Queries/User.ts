@@ -19,7 +19,7 @@ export const GET_USER = {
     },
     async resolve(parent: any, args: any) {
         const {username, password} = args;
-        const user = Users.findOne({username: username, password: password});
+        const user = await Users.findOne({username: username, password: password});
         if (!user) {
             throw new Error("INCORRECT USERNAME OR PASSWORD");
         }

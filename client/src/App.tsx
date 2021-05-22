@@ -10,6 +10,9 @@ const errorLink = onError(({ graphQLErrors, networkError }) => {
       return null;
     });
   }
+  if (networkError) {
+    alert(networkError);
+  }
 });
 
 const link = from([

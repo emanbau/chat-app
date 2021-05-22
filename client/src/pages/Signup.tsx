@@ -6,14 +6,6 @@ interface Props {
     
 }
 
-interface Employee {
-    id: number
-    employee_name: string
-    employee_salary: number
-    employee_age: number
-    profile_image: string
-}
-
 
 const Signup: React.FC<Props> = ({}) => {
     // Signup Field States
