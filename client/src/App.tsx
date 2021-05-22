@@ -5,6 +5,7 @@ import { onError } from '@apollo/client/link/error';
 import { login, logout } from './Redux/loggedin';
 import { useAppSelector, useAppDispatch } from './Redux/reduxhooks';
 
+// Apollo Client Setup
 const errorLink = onError(({ graphQLErrors, networkError }) => {
   if (graphQLErrors) {
     graphQLErrors.map(({ message }: any) => {
@@ -30,8 +31,13 @@ const client = new ApolloClient({
 
 const App: React.FC = () => {
 
+  // Redux States & Reducers
   const loggedin = useAppSelector(state => state.loggedin.loggedin);
   const dispatch = useAppDispatch();
+
+  // Redux Login/Logout Reducers
+  const loginHandle = () => dispatch(login());
+  const logoutHandle = () => dispatch(logout());
 
   return (
     

@@ -16,6 +16,7 @@ const Signup: React.FC<Props> = ({}) => {
 
     // GraphQL Mutation
     const [createUser, { error, loading, data }] = useMutation(SIGN_UP);
+    
     // Sign Up Button Handler
     const signUp = async (): Promise<void>  => {
         try {

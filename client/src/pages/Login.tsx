@@ -8,9 +8,11 @@ interface Props {
 
 const Login: React.FC<Props> = ({}) => {
 
+    // Login Field States
     const [ username, setUsername ] = useState('');
     const [ password, setPassword ] = useState('');
 
+    // GraphQL Login QueryS
     const [ getUser, { error, loading, data }] = useLazyQuery(
         LOG_IN, 
         {variables: {
