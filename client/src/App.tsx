@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './App.scss';
 import { ApolloClient, InMemoryCache, ApolloProvider, HttpLink, from } from '@apollo/client'
 import { onError } from '@apollo/client/link/error';
@@ -37,22 +37,16 @@ const App: React.FC = () => {
   const loggedin = useAppSelector(state => state.loggedin.loggedin);
   const dispatch = useAppDispatch();
 
-  // Logged In State
-  const [isLoggedin, setIsLoggedin] = useState(loggedin);
   // Logged in handler
   const loginHandle = () => {
     dispatch(login());
   }
 
-  useEffect(() => {
-    setIsLoggedin(loggedin);
-  }, [loggedin])
-
   return (
     
     <ApolloProvider client={client}>
       <div className="App">
-        {!isLoggedin ? (
+        {!loggedin ? (
             <Login loginHandle={loginHandle} />
           ) : (
             <Messenger />

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLazyQuery } from '@apollo/client';
 import { LOG_IN } from '../GraphQL/Queries/User';
-import { login } from '../Redux/loggedin';
 import { setUsername as reduxSetUsername, setPassword as reduxSetPassword } from '../Redux/account';
 import { useAppDispatch } from '../Redux/reduxhooks';
 
