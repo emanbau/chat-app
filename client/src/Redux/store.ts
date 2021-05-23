@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import loggedin from './loggedin';
+import account from './account';
 
 export const store = configureStore({
     reducer: {
         loggedin: loggedin,
+        account: account,
     }
 })
 
