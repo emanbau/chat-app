@@ -76,9 +76,18 @@ const Messenger: React.FC<Props> = () => {
                     <button onClick={connectToRoom}>Join Room</button>
                 </div>
             ) : (
-                <div className="messenger-container">
+                <div className="messenger-page-container">
                     <div className="chat-container">
-
+                        {messageList.map((message: Content) => {
+                            return(                               
+                                <div className="messageList-container">
+                                    <p>{message.author}</p>
+                                    <div className="message">
+                                        <p>{message.message}</p>
+                                    </div>
+                                </div>
+                            )
+                        })}
                     </div>
                     <div className="message-input-container">
                         <input type="text" placeholder="Message" value={message} onChange={(e) => setMessage(e.target.value)} />
