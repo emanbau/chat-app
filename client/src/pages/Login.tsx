@@ -3,6 +3,7 @@ import { useLazyQuery } from '@apollo/client';
 import { LOG_IN } from '../GraphQL/Queries/User';
 import { setUsername as reduxSetUsername, setPassword as reduxSetPassword } from '../Redux/account';
 import { useAppDispatch } from '../Redux/reduxhooks';
+import './Login.scss'
 
 interface Props {
     loginHandle: () => void
@@ -42,18 +43,22 @@ const Login: React.FC<Props> = ({ loginHandle }) => {
     }, [data, username, password, dispatch, loginHandle])
 
     return (
-        <div>
+        <div className="login-container" >
+            <h1 className="login-heading">Login</h1>
+            <p className="login-caption">Start chatting today!</p>
             <input 
                 type="text"
                 placeholder="Username"
                 onChange={(e) => setUsername(e.target.value)}
+                className="username-input"
             />
             <input 
                 type="text"
                 placeholder="Password"
                 onChange={(e) => setPassword(e.target.value)}
+                className="password-input"
             />
-            <button onClick={() => getUser()}>Log In</button>
+            <button className="login-button" onClick={() => getUser()}>Log In</button>
         </div>
     )
 }
