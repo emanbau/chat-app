@@ -56,7 +56,7 @@ const Login: React.FC<Props> = ({ loginHandle }) => {
     return (
         <div>
             { signupNeeded ? (
-                <Signup />
+                <Signup noSignupHandle={noSignupHandle} loginHandle={loginHandle}/>
             ) : (
                 <div className="login-container" >
                     <h1 className="login-heading">Login</h1>

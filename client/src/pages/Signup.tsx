@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { useMutation } from '@apollo/client';
 import { SIGN_UP } from '../GraphQL/Mutations/User';
+import { setUsername as reduxSetUsername, setPassword as reduxSetPassword } from '../Redux/account';
+import { useAppDispatch } from '../Redux/reduxhooks';
 
 interface Props {
-    
+    noSignupHandle: () => void;
+    loginHandle: () => void;
 }
 
 
-const Signup: React.FC<Props> = ({}) => {
+const Signup: React.FC<Props> = ({ noSignupHandle, loginHandle }) => {
     // Signup Field States
     const [firstName, setFirstName] = useState<string>('');
     const [lastName, setLastName] = useState<string>('');
@@ -16,6 +19,9 @@ const Signup: React.FC<Props> = ({}) => {
 
     // GraphQL Mutation
     const [createUser, { error, loading, data }] = useMutation(SIGN_UP);
+
+    // Redux dispatch action
+    const dispatch = useAppDispatch();
     
     // Sign Up Button Handler
     const signUp = async (): Promise<void>  => {
@@ -36,6 +42,12 @@ const Signup: React.FC<Props> = ({}) => {
     useEffect(() => {
         if (error) console.error(error);
         if (!loading) console.log(data);
+        if (data) {
+            dispatch(reduxSetUsername(username));
+            dispatch(reduxSetPassword(password));
+            loginHandle();
+            noSignupHandle();
+        }
     }, [error, loading, data]);
 
     return (
