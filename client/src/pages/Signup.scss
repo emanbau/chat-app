@@ -1,0 +1,33 @@
+@import "../Form.scss";
+
+.signup-heading {
+  @extend %form-heading;
+}
+
+.signup-caption {
+  @extend %form-caption;
+}
+
+.signup-container {
+  @extend %form-container;
+}
+
+.first-name-input {
+  @extend %first-input;
+}
+
+.last-name-input {
+  @extend %second-input;
+}
+
+.username-input {
+  @extend %second-input;
+}
+
+.password-input {
+  @extend %second-input;
+}
+
+.signup-button {
+  @extend %action-button;
+}

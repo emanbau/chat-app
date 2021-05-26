@@ -1,86 +1,42 @@
 @import "../App.scss";
+@import "../Form.scss";
 
 .login-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 500px;
-  height: 700px;
-  box-shadow: 10px 10px 40px 0px rgba(0, 0, 0, 0.2);
-  font-family: $font-use;
-  border: none;
+  @extend %form-container;
+}
 
-  .login-heading {
-    text-align: left;
-    width: 300px;
-    margin: 0px 0px 0px 0px;
-    line-height: 38px;
-    font-size: 28px;
-    font-weight: bold;
-    letter-spacing: 0.25px;
+.login-heading {
+  @extend %form-heading;
+}
+
+.login-caption {
+  @extend %form-caption;
+}
+
+.username-input {
+  @extend %first-input;
+}
+
+.password-input {
+  @extend %second-input;
+}
+
+.login-button {
+  @extend %action-button;
+}
+
+.login-register {
+  text-align: left;
+  width: 300px;
+  margin: 20px 0px 0px 0px;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.6);
+
+  span {
+    margin-left: 5px;
+    font-size: 14px;
     color: #303030;
-  }
-
-  .login-caption {
-    text-align: left;
-    width: 300px;
-    margin: 5px 0px 20px 0px;
-    font-size: 14px;
-    color: rgba(0, 0, 0, 0.6);
-  }
-
-  .username-input {
-    outline: none !important;
-    margin: 20px 0px 20px 0px;
-    width: 300px;
-    padding: 10px 20px;
-    border-radius: 15px;
-    border: solid black 1px;
-    font-size: 16px;
-    font-weight: 300;
-  }
-
-  .password-input {
-    outline: none !important;
-    margin: 20px 0px 20px 0px;
-    width: 300px;
-    padding: 10px 20px;
-    border-radius: 15px;
-    border: solid black 1px;
-    font-size: 16px;
-  }
-
-  .login-button {
-    margin: 20px 0px 0px 0px;
-    width: 300px;
-    padding: 10px;
-    border-radius: 15px;
-    border: solid black 1px;
+    letter-spacing: 0.25px;
     cursor: pointer;
-    background-color: #303030;
-    color: #fdfdfd;
-    transition: 200ms;
-    &:hover {
-      background-color: #fdfdfd;
-      color: #303030;
-      transition: 200ms;
-    }
-  }
-
-  .login-register {
-    text-align: left;
-    width: 300px;
-    margin: 20px 0px 0px 0px;
-    font-size: 14px;
-    color: rgba(0, 0, 0, 0.6);
-
-    span {
-      margin-left: 5px;
-      font-size: 14px;
-      color: #303030;
-      letter-spacing: 0.25px;
-      cursor: pointer;
-    }
   }
 }

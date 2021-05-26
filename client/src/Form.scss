@@ -1,0 +1,70 @@
+@import "App.scss";
+
+%form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  height: 700px;
+  box-shadow: 10px 10px 40px 0px rgba(0, 0, 0, 0.2);
+  font-family: $font-use;
+  border: none;
+}
+
+%form-heading {
+  text-align: left;
+  width: 300px;
+  margin: 0px 0px 0px 0px;
+  line-height: 38px;
+  font-size: 28px;
+  font-weight: bold;
+  letter-spacing: 0.25px;
+  color: #303030;
+}
+
+%form-caption {
+  text-align: left;
+  width: 300px;
+  margin: 5px 0px 20px 0px;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+%first-input {
+  outline: none !important;
+  margin: 20px 0px 20px 0px;
+  width: 300px;
+  padding: 10px 20px;
+  border-radius: 15px;
+  border: solid black 1px;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+%second-input {
+  outline: none !important;
+  margin: 20px 0px 20px 0px;
+  width: 300px;
+  padding: 10px 20px;
+  border-radius: 15px;
+  border: solid black 1px;
+  font-size: 16px;
+}
+
+%action-button {
+  margin: 20px 0px 0px 0px;
+  width: 300px;
+  padding: 10px;
+  border-radius: 15px;
+  border: solid black 1px;
+  cursor: pointer;
+  background-color: #303030;
+  color: #fdfdfd;
+  transition: 200ms;
+  &:hover {
+    background-color: #fdfdfd;
+    color: #303030;
+    transition: 200ms;
+  }
+}
