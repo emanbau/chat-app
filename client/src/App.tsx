@@ -32,13 +32,12 @@ const client = new ApolloClient({
 
 
 const App: React.FC = () => {
-
   // Redux States & Reducers
   const loggedin = useAppSelector(state => state.loggedin.loggedin);
   const dispatch = useAppDispatch();
 
   // Logged in handler
-  const loginHandle = () => {
+  const loginHandle: () => void = () => {
     dispatch(login());
   }
 

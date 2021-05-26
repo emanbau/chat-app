@@ -11,7 +11,7 @@ export const SIGN_UP = gql`
             firstName: $firstName
             lastName: $lastName
             username: $username
-            password; $password
+            password: $password
         ) {
             successful
             message

@@ -23,6 +23,9 @@ const CONNECTION_PORT: string = 'localhost:3001/';
 
 const Messenger: React.FC<Props> = () => {
 
+    // Connected to Socket State
+    const [socketConnected, setSocketConnected] = useState<boolean>(false);
+
     // Room States
     const [inARoom, setInARoom] = useState<boolean>(false);
     const [room, setRoom] = useState<string>('');
@@ -37,12 +40,20 @@ const Messenger: React.FC<Props> = () => {
     useEffect(() => {
         // Setup connection to server on first render
         socket = io(CONNECTION_PORT);
-    }, [])
+        setSocketConnected(true);
+    }, [socketConnected])
 
     // Connect to room handle
     const connectToRoom: () => void = () => {
         setInARoom(true);
         socket.emit('join_room', room);
+    }
+
+    // Disconnect from room handle
+    const disconnectFromRoom: () => void = () => {
+        setInARoom(false);
+        socket.disconnect();
+        setSocketConnected(false);
     }
 
     // Receive Messages
